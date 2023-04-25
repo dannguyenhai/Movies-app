@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import { fetcher, tmdbAPI } from "../config";

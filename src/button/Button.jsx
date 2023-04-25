@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+import PropTypes from 'prop-types'; 
 const Button = ({
   onClick,
   className,
@@ -8,6 +7,14 @@ const Button = ({
   bgColor = "primary",
   children,
 }) => {
+  Button.propTypes = {
+    onClick: PropTypes.string.isRequired,
+    full: PropTypes.bool.isRequired,
+    className: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    bgColor: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired,
+  };
   let bgClassName = "primary";
   switch (bgColor) {
     case "primary":
