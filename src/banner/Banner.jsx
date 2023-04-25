@@ -1,12 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line react/prop-types
-import useSWR from "swr";
 import { fetcher } from "../config";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
+import useSWR from "swr";
+import PropTypes from 'prop-types'; 
 const Banner = () => {
   const { data } = useSWR(
     "https://api.themoviedb.org/3/movie/upcoming?api_key=b4821ecf28359b0ffef768ae97db9760",
@@ -30,6 +27,9 @@ const Banner = () => {
 };
 
 function BannerItem({ item }) {
+  BannerItem.propTypes = {
+    item: PropTypes.string.isRequired,
+  };
   const { backdrop_path, title,id } = item;
   const navigate = useNavigate();
   return (

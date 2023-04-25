@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
+import { PropTypes } from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const MovieCard = ({ item }) => {
-  // eslint-disable-next-line react/prop-types
+  MovieCard.propTypes = {
+    item: PropTypes.string.isRequired,
+  };
+
   const { poster_path, release_date, title, vote_average, id } = item;
   const navigate = useNavigate();
   //https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
@@ -20,7 +23,9 @@ const MovieCard = ({ item }) => {
           <span>{release_date}</span>
           <span>{vote_average}</span>
         </div>
-        <Button bgColor="secondary" onClick={() => navigate(`/movie/${id}`)}>Watch Now</Button>
+        <Button bgColor="secondary" onClick={() => navigate(`/movie/${id}`)}>
+          Watch Now
+        </Button>
         {/* <button onClick={() => navigate(`/movie/${id}`)} className="w-full py-3 px-6 text-lg bg-primary rounded-lg mt-auto">
           Watch Now
         </button> */}

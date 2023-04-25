@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
-import MovieList from "../components/MovieList";
 import useSWR from "swr";
 import { fetcher } from "../config";
 import MovieCard from "../components/MovieCard";
