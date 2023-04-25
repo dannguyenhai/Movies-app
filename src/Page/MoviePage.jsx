@@ -4,7 +4,6 @@ import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import useDebounce from "../hooks/useDebounce";
 import ReactPaginate from "react-paginate";
-//https://api.themoviedb.org/3/search/movie?api_key=b4821ecf28359b0ffef768ae97db9760
 const itemsPerPage = 20;
 const Movies = () => {
   const [pageCount, setPageCount] = useState(0);

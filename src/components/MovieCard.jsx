@@ -26,9 +26,6 @@ const MovieCard = ({ item }) => {
         <Button bgColor="secondary" onClick={() => navigate(`/movie/${id}`)}>
           Watch Now
         </Button>
-        {/* <button onClick={() => navigate(`/movie/${id}`)} className="w-full py-3 px-6 text-lg bg-primary rounded-lg mt-auto">
-          Watch Now
-        </button> */}
       </div>
     </div>
   );
