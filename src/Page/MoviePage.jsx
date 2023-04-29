@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { fetcher } from "../config";
+import { fetcher, tmdbAPI } from "../config";
 import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import useDebounce from "../hooks/useDebounce";
@@ -12,7 +12,7 @@ const Movies = () => {
   const [nextPage, setNextPage] = useState(1);
   const [filter, setFilter] = useState("");
   const [url, setUrl] = useState(
-    `https://api.themoviedb.org/3/movie/popular?api_key=b4821ecf28359b0ffef768ae97db9760&page=${nextPage}`
+    tmdbAPI.getMovieList("popular",nextPage)
   );
   const filterDebounce = useDebounce(filter, 500);
   const handleFilterChange = (e) => {
@@ -24,11 +24,11 @@ const Movies = () => {
   useEffect(() => {
     if (filterDebounce)
       setUrl(
-        `https://api.themoviedb.org/3/search/movie?api_key=b4821ecf28359b0ffef768ae97db9760&query=${filterDebounce}&page=${nextPage}`
+        tmdbAPI.getMovieSearch(filterDebounce,nextPage)
       );
     else
       setUrl(
-        `https://api.themoviedb.org/3/movie/popular?api_key=b4821ecf28359b0ffef768ae97db9760&page=${nextPage}`
+        tmdbAPI.getMovieList("popular",nextPage)
       );
   }, [filterDebounce, nextPage]);
   const movies = data?.results || [];
