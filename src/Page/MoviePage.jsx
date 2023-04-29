@@ -11,9 +11,7 @@ const Movies = () => {
 
   const [nextPage, setNextPage] = useState(1);
   const [filter, setFilter] = useState("");
-  const [url, setUrl] = useState(
-    tmdbAPI.getMovieList("popular",nextPage)
-  );
+  const [url, setUrl] = useState(tmdbAPI.getMovieList("popular", nextPage));
   const filterDebounce = useDebounce(filter, 500);
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -23,13 +21,8 @@ const Movies = () => {
   console.log(data);
   useEffect(() => {
     if (filterDebounce)
-      setUrl(
-        tmdbAPI.getMovieSearch(filterDebounce,nextPage)
-      );
-    else
-      setUrl(
-        tmdbAPI.getMovieList("popular",nextPage)
-      );
+      setUrl(tmdbAPI.getMovieSearch(filterDebounce, nextPage));
+    else setUrl(tmdbAPI.getMovieList("popular", nextPage));
   }, [filterDebounce, nextPage]);
   const movies = data?.results || [];
   useEffect(() => {
