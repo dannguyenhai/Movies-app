@@ -12,7 +12,7 @@ const MovieDetailsPage = () => {
   const { backdrop_path, title, genres, overview } = data;
   return (
     <div className="py-10">
-      <div className="w-full h-[600px] relative">
+      <div className="poster w-full h-[600px] relative">
         <div className=" overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.4)]"></div>
         <div
           className="w-full h-full bg-cover bg-no-repeat"
@@ -21,7 +21,7 @@ const MovieDetailsPage = () => {
           }}
         ></div>
       </div>
-      <div className="w-full h-[400px] max-w-[800px] mx-auto -mt-[200px] relative z-10 pb-10">
+      <div className="poster-film w-full h-[400px] max-w-[800px] mx-auto -mt-[200px] relative z-10 pb-10">
         <img
           src={tmdbAPI.imageOriginal(backdrop_path)}
           className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ function MovieCredits() {
   return (
     <div className="py-10 page-container">
       <h2 className="text-center text-3xl mb-10">Casts</h2>
-      <div className="grid grid-cols-4 gap-5">
+      <div className=" cast-items grid grid-cols-4 gap-5">
         {cast.slice(0, 4).map((item) => (
           <div key={item.id} className="cast-item">
             <img
@@ -89,13 +89,13 @@ function MovieVideo() {
       <div className="flex flex-col gap-10 page-container">
         {results.slice(0, 3).map((item) => (
           <div className="" key={item.id}>
-            <h3 className="text-3xl p-3 mb-2 bg-secondary inline-block text-center">
+            <h3 className="video-title text-3xl p-3 mb-2 bg-secondary text-center flex items-center justify-center">
               {item.name}
             </h3>
-            <div key={item.id} className="w-full aspect-video">
+            <div key={item.id} className="video w-full h-auto flex items-center mt-3 justify-center page-container">
               <iframe
-                width="1217"
-                height="685"
+                width="1000px"
+                height="600px "
                 src={`https://www.youtube.com/embed/${item.key}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

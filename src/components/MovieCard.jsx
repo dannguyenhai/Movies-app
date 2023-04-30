@@ -6,7 +6,6 @@ const MovieCard = ({ item }) => {
   MovieCard.propTypes = {
     item: PropTypes.string.isRequired,
   };
-
   const { poster_path, release_date, title, vote_average, id } = item;
   const navigate = useNavigate();
   //https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
